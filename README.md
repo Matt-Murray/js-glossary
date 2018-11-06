@@ -1,26 +1,7 @@
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+# The JavaScript Programmer's Glossary
+A brief glossary of JavaScript terminology built with HTML5 and CSS
 
+![alt text](https://i.imgur.com/oRkV8Zh.png)
 
-Hi there! Welcome to Cloud9 IDE!
-
-To get you started, we included a small hello world application.
-
-1) Open the hello-world.html file
-
-2) Click on the Preview button to open a live preview pane
-
-3) Make some changes to the file, save, watch the preview, and have fun!
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for documentation, or http://support.c9.io for support.
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+## Reflection
+This project was completed as part of FreeCodeCamp's Responsive Web Design certification curriculum. The purpose of the project was to create a technical documentation page that would serve as practice in creating responsive webpages with HTML5 and CSS and to reinforce my knowledge of/serve as a reference for basic JavaScript terminology.
