@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+	<nav id="navbar">
+		<header>JS Glossary</header>
+		<ul>
+			<a class="nav-link" href="#introduction" rel="internal">
+				<li>Introduction</li>
+			</a>
+			<a class="nav-link" href="#data_types" rel="internal">
+				<li>Data Types</li>
+			</a>
+			<a class="nav-link" href="#arrays" rel="internal">
+				<li>Arrays</li>
+			</a>
+			<a class="nav-link" href="#booleans" rel="internal">
+				<li>Booleans</li>
+			</a>
+			<a class="nav-link" href="#code_comments" rel="internal">
+				<li>Code Comments</li>
+			</a>
+			<a class="nav-link" href="#console" rel="internal">
+				<li>Console</li>
+			</a>
+			<a class="nav-link" href="#functions" rel="internal">
+				<li>Functions</li>
+			</a>
+			<a class="nav-link" href="#if_statements" rel="internal">
+				<li>If Statements</li>
+			</a>
+			<a class="nav-link" href="#loops" rel="internal">
+				<li>Loops</li>
+			</a>
+			<a class="nav-link" href="#math" rel="internal">
+				<li>Math</li>
+			</a>
+			<a class="nav-link" href="#numbers" rel="internal">
+				<li>Numbers</li>
+			</a>
+			<a class="nav-link" href="#objects" rel="internal">
+				<li>Objects</li>
+			</a>
+			<a class="nav-link" href="#reference" rel="internal">
+				<li>Reference</li>
+			</a>
+		</ul>
+	</nav>
+	<main id="main-doc">
+		<section class="main-section" id="introduction">
+			<header>Introduction</header>
+			<article>
+				<p>JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB
+					and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm, dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles.</p>
+				<p>This glossary serves as a programming reference for JavaScript, covering data types and their usage as well as functions, methods, the console, alerts, and more.</p>
+			</article>
+		</section>
+		<section class="main-section" id="data_types">
+			<header>Data Types</header>
+			<article>
+				<h2>The Six Primitive Data Types</h2>
+				<ul>
+					<li>Boolean</li>
+					<li>Null</li>
+					<li>Undefined</li>
+					<li>Number</li>
+					<li>String</li>
+					<li>Symbol (new in ECMAScript 6)</li>
+				</ul>
+				<p>All types of primitive data except objects define immutable values (values, which are incapable of being changed). For example and unlike to C, Strings are immutable. We refer to values of these types as "primitive values".</p>
+
+				<h2>Boolean</h2>
+				<p>Boolean represents a logical entity and can have two values: true, and false.</p>
+
+				<h2>Null</h2>
+				<p>The Null type has exactly one value: null</p>
+
+				<h2>Undefined</h2>
+				<p>A variable that has not been assigned a value has the value undefined.</p>
+
+				<h2>Number</h2>
+				<p>According to the ECMAScript standard, there is only one number type: the double-precision 64-bit binary format IEEE 754 value (numbers between -(253 -1) and 253 -1). There is no specific type for integers. In addition to being able to represent floating-point
+					numbers, the number type has three symbolic values: +Infinity, -Infinity, and NaN (not-a-number).</p>
+
+				<h2>String</h2>
+				<p>JavaScript's String type is used to represent textual data. It is a set of "elements" of 16-bit unsigned integer values. Each element in the String occupies a position in the String. The first element is at index 0, the next at index 1, and so on.
+					The length of a String is the number of elements in it. Unlike in languages like C, JavaScript strings are immutable. This means that once a string is created, it is not possible to modify it. However, it is still possible to create another string
+					based on an operation on the original string. Use strings for textual data. When representing complex data, parse strings and use the appropriate abstraction.</p>
+
+				<h2>Symbol</h2>
+				<p>Symbols are new to JavaScript in ECMAScript 2015. A Symbol is a unique and immutable primitive value and may be used as the key of an Object property (see below). In some programming languages, Symbols are called atoms. For more details see Symbol
+					and the Symbol object wrapper in JavaScript.</p>
+			</article>
+		</section>
+		<section class="main-section" id="arrays">
+			<header>Arrays</header>
+			<article>
+				<h2>Accessing Array Elements</h2>
+				<p>You can get elements out of arrays if you know their index. Array elements' indices start at 0 and increment by 1, so the first element's index is 0, the second element's index is 1, the third element's index is 2, etc.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">array[index];</code>
+				<h3>Example</h3>
+				<code class="prettyprint">var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37];
+					<br>
+	primes[0]; // 2
+					<br>
+	primes[3]; // 7
+					<br>
+	primes[150]; // undefined</code>
+				<h2>Array Literals</h2>
+				<p>You can create arrays in two different ways. The most common of which is to list values in a pair of square brackets. JavaScript arrays can contain any types of values and they can be of mixed types.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">const arrayName = [element0, element1, ..., elementN]</code>
+				<h3>Example</h3>
+				<code class="prettyprint">const primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37];</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN - Arrays</a>
+				<h2>Multi-Dimentional Arrays</h2>
+				<p>A two-dimensional array is an array within an array. If you fill this array with another array you get a three-dimensional array and so on.</p>
+				<h3>Example</h3>
+				<code class="prettyprint">const stuff = new Array();
+	<br>
+	stuff[0] = 34;
+	stuff[4] = 20;
+	<br>
+	stuff;
+	<br>
+	// [34, undefined, undefined, undefined, 20]</code>
+				<h3>Example</h3>
+				<code class="prettyprint">const myArray = new Array(45 , 'Hello World!' , true , 3.2 , undefined);<br>
+	console.log(myArray);
+	<br>
+	// output: [ 45, 'Hello World!', true, 3.2, undefined ]</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Example.3A_Creating_an_array">MDN - Creating an Array</a>
+				<h2>Accessing Nested Array Elements</h2>
+				<p>Accessing multi-dimensional array elements is quite similar to one-dimension arrays. They are accessed by using [index][index]..... (number of them depends upon the number of arrays deep you want to go inside).</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">array[index][index] //...</code>
+				<h3>Example</h3>
+				<code class="prettyprint">const myMultiArray = [
+		[1, 2, 3, 4, 5, [1, 2, 3, 4, 5] ],
+					<br>
+		[6, 7, 8, 9, 10, [1, 2, 3, 4, 6] ],
+					<br>
+		[11, 12, 13, 14, 15, [1, 2, 3, 4, 5] ],
+					<br>
+		[16, 17, 18, 19, 20, [1, 2, 3, 4, 5] ]
+	];
+	<br>
+	console.log(myMultiArray[1][5][4]);
+					<br>
+	// Outputs 6, the value in the last element of the last element of the second element of myMultiArray.</code>
+			</article>
+		</section>
+		<section class="main-section" id="booleans">
+			<header>Booleans</header>
+			<article>
+				<h2>Boolean Literals</h2>
+				<h3>Syntax</h3>
+				<code class="prettyprint">true
+								false</code>
+				<h2>Boolean Logical Operators
+					<h2>
+						<h3>Syntax</h3>
+						<code class="prettyprint">expression1 && expression2
+							<br>
+	// Returns true if both the expressions evaluate to true
+	<br>
+	expression3 || expression4
+							<br>
+	// Returns true if either one of the expression evaluates to true
+	<br>
+	!expression5
+							<br>
+	// Returns the opposite boolean value of the expression</code>
+						<h3>Example</h3>
+						<code class="prettyprint">if (true && false) {;
+							<br>
+		// This block is not entered because the second expression is false
+							<br>
+	}
+							<br>
+	if (false || true) {
+							<br>
+		// This block is entered because any one of the expression is true
+							<br>
+	}
+							<br>
+	if (!false) {
+							<br>
+		// This block is entered because !false evaluates to true
+							<br>
+	}
+							<br>
+	!!true
+							<br>
+							// Evaluates to true</code>
+						<h3>Example</h3>
+						<code class="prettyprint">if (!false && ( false || (false && true) )) {
+							<br>
+		console.log('Guess what...');
+							<br>
+	}
+	<br>
+	/* Not executed because 
+							<br>
+	!false && ( false || (false && true) ) - becomes
+							<br>
+	!false && ( false || false) - becomes
+							<br>
+	true && false , which is false.
+							
+							<br>
+	*/</code>
+						<h3>Example</h3>
+						<code class="prettyprint">/* An important thing to note here is the Operator Precedence - <br>
+							which determines the order in which operators are evaluated.
+							<br>
+							 Operators with higher precedence are evaluated first. Thus among the four -
+							<br> 
+							() , && , || , ! */
+							<br>
+							<br>
+	// Brackets - have the highest precedence
+							<br>
+	// ! - lower than Brackets
+							<br>
+	// && - lower than !
+							<br>
+	// || - the lowest
+							<br>
+							<br>
+	if (true && !!false || true) {
+							<br>
+		console.log('Guess again ??');
+							<br>
+	}
+							<br>
+							<br>
+	/* Executed , here is the evaluation process-
+							<br>
+	true && !!false || true - becomes
+	true && false || true - (no brackets present , so ! evaluated ) becomes
+									false || true - (then && evaluated) which becomes true */</code>
+						<h3>Example</h3>
+						<code class="prettyprint">/* Next important thing is the Associativity - which determines the order in which operators of the same precedence are processed. 							<br>
+							For example, consider an expression: a * b * c. Left-associativity (left-to-right) means that it is processed as (a * b) * c,
+							<br> 
+							while right-associativity (right-to-left) means it is interpreted as a * (b * c). */
+							<br>
+							<br>
+	// Brackets , && , || have left to right associativity 							 <br>
+	// ! has right to left associativity
+							<br>
+							<br>
+	!false && !!false // false
+							<br>
+									// evaluated in the manner - !false && false - true && false - false</code>
+						<h2>Comparison Operators</h2>
+						<h3>Syntax</h3>
+						<code class="prettyprint">x === y // Returns true if two things are equal
+							<br>
+	x !== y // Returns true if two things are not equal
+							<br>
+	x <= y // Returns true if x is less than or equal to y
+			 				<br>
+	x >= y // Returns true if x is greater than or equal to y
+							<br>
+	x < y // Returns true if x is less than y
+						  <br>
+			 x > y // Returns true if x is greater than y</code>
+						<h2>"Truthy" and "Falsy"</h2>
+						<p>Only Boolean literals (true and false) assert truth or false, but there are some other ways too to derive true or false. Have a look at the examples.</p>
+						<h3>Example</h3>
+						<code class="prettyprint">if (1) {<br>
+		// Output 'True!', since any non-zero number is considered to be true
+							<br>
+		console.log('True!');
+							<br>
+	}
+							<br>
+							<br>
+	if (0) {
+							<br>
+		// Not executed, since 0 evaluates to falsy
+							<br>
+		console.log('I doubt if this gets executed');
+							<br>
+	}
+							<br>
+							<br>
+	if ('Hello') {
+							<br>
+		// Gets executed because non-empty strings are truthy
+							<br>
+		console.log('So, any non-empty String is also true.');
+							<br> 
+	}
+							<br>
+							<br>
+	if ('') {
+							<br>
+		// Not executed
+							<br>
+		console.log('Hence , an empty String is false');
+							<br>
+	}</code>
+						<h3>Read More</h3>
+						<a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">MDN - Falsy</a>
+						<a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">MDN - Truthy</a>
+						<h2>== vs. ===</h2>
+						<p>A simple explanation would be that == does just value checking (no type checking ), whereas, === does both value checking and type checking. Seeing the examples may make it all clear. It is always advisable that you never use ==, because == often
+							produces unwanted results.</p>
+						<h3>Syntax</h3>
+						<code class="prettyprint">expression == expression
+							<br>
+	expression === expression</code>
+						<h3>Example</h3>
+						<code class="prettyprint">'1' == 1  // true (same value)
+							<br>
+	'1' === 1 // false (not the same type)
+							<br>
+							<br>
+	true == 1  // true (because 1 evaluates as truthy, though it's not the same type)
+							<br>
+									true === 1 // false (not the same type)</code>
+			</article>
+		</section>
+		<section class="main-section" id="code_comments">
+			<header>Code Comments</header>
+			<article>
+				<p>Code comments are used for increasing the readability of the code.If you write 100 lines of code and then forget what each function did, it's not useful at all. Comments are like notes, suggestions, warnings, etc. that you can put for yourself. Code
+					comments are not executed</p>
+				<h2>Single-Line Comment</h2>
+				<p>Anything on the line following // will be a comment while anything before will still be code.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">console.log('This code will be run');
+	// console.log('Because this line is in a comment, this code will not be run.')
+							// This is a single line comment.</code>
+				<h2>Multi-Line Comment</h2>
+				<p>Anything between /* and */ will be a comment.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">/* This is
+		 a multi-line
+		 <br>
+		 <br>
+		 comment!
+						*/</code>
+				<h3>Example</h3>
+				<code class="prettyprint">/* 
+	console.log('Hello,I won't be executed.');
+	console.log('Hello ,I also will not be executed');
+	*/</code>
+			</article>
+		</section>
+		<section class="main-section" id="console">
+			<header>Console</header>
+			<article>
+				<h2>console.log</h2>
+				<p>Prints text to the console. Useful for debugging.</p>
+				<h3>Example</h3>
+				<code class="prettyprint">const name = 'Codecademy';
+	console.log(name);</code>
+				<h2>console.time</h2>
+				<p>This function starts a timer which is useful for tracking how long an operation takes to happen.You give each timer a unique name, and may have up to 10,000 timers running on a given page.When you call console.timeEnd() with the same name, the browser
+					will output the time, in milliseconds, that elapsed since the timer was started.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">console.time(timerName);</code>
+				<h3>Example</h3>
+				<code class="prettyprint">console.time('My Math');
+					<br>
+	const x = 5 + 5;
+					<br>
+	console.log(x);
+					<br>
+	console.timeEnd('My Math');
+					<br>
+	console.log('Done the math.');
+					<br>
+					<br>
+	/* Output:
+	10
+	My Math: (time taken)
+	Done the math.
+						*/</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/API/console.time">MDN - console.time</a>
+				<h2>console.timeEnd()</h2>
+				<p>Stops a timer that was previously started by calling console.time().</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">console.timeEnd(timerName);</code>
+				<h3>Example</h3>
+				<code class="prettyprint">console.time('My Math');
+					<br>
+	const x = 5 + 5;
+					<br>
+	console.log(x);
+					<br>
+	console.timeEnd('My Math');
+					<br>
+					<br>
+	/* Output :
+	10
+	My Math: (time taken)
+	*/</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/API/console.timeEnd">MDN - console.timeEnd</a>
+			</article>
+		</section>
+		<section class="main-section" id="functions">
+			<header>Functions</header>
+			<article>
+				<p>
+					A function is a JavaScript procedure—a set of statements that performs a task or calculates a value.It is like a reusable piece of code. Imagine , having 20 for loops ,and then having a single function to handle it all . To use a function, you must define
+					it somewhere in the scope from which you wish to call it. A function definition (also called a function declaration) consists of the function keyword, followed by the name of the function, a list of arguments to the function, enclosed in parentheses
+					and separated by commas, the JavaScript statements that define the function, enclosed in curly braces, { }.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">
+						function name(argument1 , argument2, /* ..., argumentN */){
+					<br>
+		statement1;
+					<br>
+		statement2;
+					<br>
+		// ... 
+					<br>
+		statementN;
+					<br>
+	}
+					</code>
+				<h3>Example</h3>
+				<code class="prettyprint">function greet(name) {<br>
+		return 'Hello' + name + '!';<br>
+	}</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">MDN - Functions</a>
+				<h2>Function Calling</h2>
+				<h3>Syntax</h3>
+				<code class="prettyprint">functionName(argument1, argument2, ..., argumentN);</code>
+				<h3>Example</h3>
+				<code class="prettyprint">greet('Anonymous');						<br>
+	// Hello Anonymous!</code>
+				<h2>Function Hoisting</h2>
+				<p>The two ways of declaring functions produce different results. Declaring a function one way "hoists" it to the top of the call, and makes it available before it's actually defined.</p>
+				<h3>Example</h3>
+				<code class="prettyprint">hoistedFunction(); // Hello! I am defined immediately!
+					<br>
+	notHoistedFunction(); // ReferenceError: notHoistedFunction is not defined
+					<br>
+					<br>
+	function hoistedFunction () {
+					<br>
+		console.log('Hello! I am defined immediately!');
+					<br>
+	}
+					<br>
+					<br>
+	var notHoistedFunction = function () {
+					<br>
+		console.log('I am not defined immediately.');
+					<br>
+	}</code>
+				<h3>Read More
+					<h3>
+						<a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting">MDN - Hoisting</a>
+			</article>
+		</section>
+		<section class="main-section" id="if_statements">
+			<header>If Statements</header>
+			<article>
+				<p>It simply states that if this condition is true, do this, else do something else (or nothing). It occurs in varied forms.</p>
+				<h2>if</h2>
+				<h3>Syntax</h3>
+				<code class="prettyprint">// Form : Single If
+					<br>
+	if (condition) {
+					<br>
+		// code that runs if the condition is true<br>
+	}</code>
+				<h3>Example</h3>
+				<code class="prettyprint">if (answer === 42) {
+					<br>
+		console.log('Told you so!');
+					<br>
+	}</code>
+				<h2>Else</h2>
+				<p>A fallback to an if statement. This will only get executed if the previous statement did not.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">// If the condition is true, statement1 will be executed.
+					<br>
+	// Otherwise, statement2 will be executed.
+					<br>
+					<br>
+	if (condition) {
+					<br>
+		// statement1: code that runs if condition is true
+					<br>
+	} else {
+					<br>
+		// statement2: code that runs if condition is false
+					<br>
+	}</code>
+				<h3>Example</h3>
+				<code class="prettyprint">if (animal == 'dog') {
+					<br>
+		console.log('Bark, bark!');
+					<br>
+	} else {
+					<br>
+		console.log('Meow!');
+					<br>
+	}</code>
+				<h2>Else If</h2>
+				<p>This is like an else statement, but with its own condition. It will only run if its condition is true, and the previous statement's condition was false.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">/* Form : else if. If the condition is true, statement1 will be executed. Otherwise, condition2 is checked. if it is true, then statement2 is executed. Else, if nothing is true, statement3 is executed. */
+					<br>
+	if (condition1) {
+					<br>
+		statement1;
+					<br>
+	} else if (condition2) {
+					<br>
+		statement2;
+					<br>
+	} else {
+					<br>
+		statement3;
+					<br>
+	}</code>
+				<h3>Example</h3>
+				<code class="prettyprint">if (someNumber > 10) {
+					<br>
+		console.log('Numbers larger than 10 are not allowed.');
+					<br>
+	} else if (someNumber < 0) {
+					<br>
+		console.log('Negative numbers are not allowed.');							<br>
+	} else {
+					<br>
+		console.log('Nice number!');
+					<br>
+	}</code>
+			</article>
+		</section>
+		<section class="main-section" id="loops">
+			<header>Loops</header>
+			<article>
+				<h2>For Loops</h2>
+				<p>You use for loops if you know how often you'll loop. The most often used varName in loops is <i>i</i>.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">for ([let i = startValue]; [i < endValue]; [i+=stepValue]) { 
+					<br>
+		// Loop code here 
+					<br>
+	}</code>
+				<h3>Example</h3>
+				<code class="prettyprint">for (let i = 0; i < 5; i++) {
+					<br>
+		console.log(i); // Prints the numbers from 0 to 4
+					<br>
+	}</code>
+				<h3>Example</h3>
+				<code class="prettyprint">let i;  // 'outsourcing' the definition
+					<br>
+	for (i = 10; i >= 1; i--) {
+					<br>
+			console.log(i); // Prints the numbers from 10 to 1
+					<br>
+	}</code>
+				<h3>Example</h3>
+				<code class="prettyprint">/* Note that all of the three statements are optional, i.e. , */
+					<br>
+	let i = 9;
+					<br>
+	// This loop is perfectly valid:
+					<br>
+	for(;;){
+					<br>
+			if(i === 0) {
+					<br>
+				break;
+					<br>
+			}
+					<br>
+			console.log(i);
+					<br>
+			i--;
+					<br>
+	}</code>
+				<h2>While Loops</h2>
+				<p>You use while loops if you don't know how often you'll loop.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">while (condition) {
+					<br>
+		// Your code here
+					<br>
+	}</code>
+				<h3>Example</h3>
+				<code class="prettyprint">let x = 0;
+					<br>
+	while (x < 5) {
+					<br>
+		console.log(x); // Prints numbers from 0 to 4
+					<br>
+		x++;
+					<br>
+	}</code>
+				<h3>Example</h3>
+				<code class="prettyprint">let x = 10;
+					<br>
+	while (x <= 5) {
+							 <br>
+			console.log(x); // Won't be executed
+					<br>
+			x++;
+					<br>
+	}</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while">MDN - While Loops</a>
+				<h2>Do While Loops</h2>
+				<p>You use do while loops if you have to loop at least once, but if you don't know how often.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">do {
+					<br>
+		// Your code here
+					<br>
+	} while (condition);</code>
+				<h3>Example</h3>
+				<code class="prettyprint">let x = 0;
+					<br>
+	do {
+					<br>
+			console.log(x);  // Prints numbers from 0 to 4
+					<br>
+			x++;
+					<br>
+	} while (x < 5);</code>
+				<h3>Example</h3>
+				<code class="prettyprint">let x = 10;
+					<br>
+	do {
+					<br>
+			console.log(x); // Prints 10
+					<br>
+			x++;
+					<br>
+	} while (x <= 5);</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while">MDN - Do While Loops</a>
+			</article>
+		</section>
+		<section class="main-section" id="math">
+			<header>Math</header>
+			<article>
+				<h2>.random()</h2>
+				<p>Returns a random number between 0 and 1.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">Math.random()</code>
+				<h3>Example</h3>
+				<code class="prettyprint">Math.random(); // A random number between 0 and 1.</code>
+				<h2>.floor()</h2>
+				<p>Returns the largest integer less than or equal to a number.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">Math.floor(expression)</code>
+				<h3>Example</h3>
+				<code class="prettyprint">Math.floor(9.99);<br> // 9<br>
+	Math.floor(1 + 0.5);
+					<br> 
+					// 1
+					<br>
+	Math.floor(Math.random() * x + 1);
+					<br> 
+					// Returns a random number between 1 and x</code>
+				<h2>.pow()</h2>
+				<p>Returns base raised to exponent.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">Math.pow(base, exponent)</code>
+				<h3>Example</h3>
+				<code class="prettyprint">Math.pow(2,4);
+					<br>
+					// gives 16</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow">MDN - pow</a>
+				<h2>.ceil()</h2>
+				<p>Returns the smallest integer greater than or equal to a number.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">Math.ceil(expression)</code>
+				<h3>Example</h3>
+				<code class="prettyprint">Math.ceil(45.4);
+					<br>
+					// 46
+	Math.ceil(4 - 1.9);
+					<br> 
+					// 3</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil">MDN - ceil</a>
+				<h2>.PI</h2>
+				<p>Returns the ratio of the circumference of a circle to its diameter, approximately 3.14159 or in better terms, the value of PI (π). Note in syntax , we do not put () at the end of Math.PI because Math.PI is not a function.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">Math.PI</code>
+				<h3>Example</h3>
+				<code class="prettyprint">Math.round(Math.PI); 					<br>
+					// rounds the value of PI ,gives 3
+					<br>
+	Math.ceil(Math.PI);
+					<br>
+					// 4</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI">MDN - PI</a>
+				<h2>.sqrt()</h2>
+				<p>Returns the square root of a number.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">Math.sqrt(expression)</code>
+				<h3>Example</h3>
+				<code class="prettyprint">Math.sqrt(5+4);
+					<br>
+					// 3
+					<br>
+	Math.sqrt(Math.sqrt(122+22) + Math.sqrt(16));
+					<br>
+					// 4</code>
+				<h3>Read More</h3>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt">MDN - sqrt</a>
+			</article>
+		</section>
+		<section class="main-section" id="numbers">
+			<header>Numbers</header>
+			<article>
+				<h2>% (Modulus)</h2>
+				<p>Returns the remainder left after dividing the left side with the right side.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">number1 % number2</code>
+				<h3>Example</h3>
+				<code class="prettyprint">14 % 9 // returns 5</code>
+				<h2>isNaN()</h2>
+				<p>Returns true if the given number is not a number, else returns false.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">isNaN([value])</code>
+				<h3>Example</h3>
+				<code class="prettyprint">const userInput = prompt('Enter a number'); // "Enter a number"
+					<br>
+					<br>
+	if (isNaN(userInput)) {
+					<br>
+		console.log('I told you to enter a number.');
+					<br>
+	}
+					<br>
+					<br>
+	// console.log executed since 'a number' is not a number
+					<br>
+					<br>
+	// Another important thing:
+					<br>
+					<br>
+	if (isNaN('3')) {
+					<br>
+		console.log('bad');
+					<br>
+	}
+					<br>
+					<br>
+	// Not executed because the string "3" gets converted into 3, and 3 is a number</code>
+				<h2>Basic Arithmetic</h2>
+				<p>Doing basic arithmetic is simple.</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">4 + 5;  // 9
+					<br>
+	4 * 5;  // 20
+					<br>
+	5 - 4;  // 1
+					<br>
+	20 / 5; // 4</code>
+				<h2>Prefix and Postfix Increment/Decrement Operators</h2>
+				<p>Prefix increment / decrement operators are operators that first increase the value of the variable by 1 (increment) or decrease the value of an expression / variable by 1 (decrement) and then return this incremented / decremented value. They are used
+					like ++(variable) [increment] or --(varaible) [decrement] On the other hand , Postfix increment / decrement operators are operators that first return the value of the variable and then increase the value of that variable by 1 (increment) or decrease
+					the value of the variable by 1 (decrement) . They are used like (variable)++ [increment] or (varaible)-- [decrement].</p>
+				<h3>Syntax</h3>
+				<code class="prettyprint">// Prefix Decrement:             <br>
+	--variable
+					<br>
+	// Prefix Increment:
+					<br>
+	++variable
+					<br>
+	// Postfix Decrement:
+					<br>
+	variable--
+					<br>
+	// Postfix Increment:
+					<br>
+	variable++</code>
+				<h3>Example</h3>
+				<code class="prettyprint">
+	let x = 15; // x has a value of 15
+					<br>
+	const y = x++;
+					<br>
+	// since it is postfix , the value of x (15) is first assigned to y and then the value of x is incremented by 1
+					<br>
+	console.log(y); // 15
+					<br>
+	console.log(x); // 16
+					<br>
+					<br>
+	let a = 15; // a has a value of 15
+					<br>
+	const b = ++a;
+					<br>
+	// since it is prefix , the value of a (15) is first incremented by 1 and then the value of x is assigned to b
+					<br>
+	console.log(b); // 16
+					<br>
+	console.log(a); // 16</code>
+			</article>
+		</section>
+		<section class="main-section" id="objects">
+			<header>Objects</header>
+			<article>
+				<h2>Object Literals</h2>
+				<h3>Syntax</h3>
+				<code class="prettyprint">{
+					<br>
+		'property 1': value1,
+					<br>
+		property2: value2,
+					<br>
+		number: value3
+					<br>
+	}</code>
+				<h3>Example</h3>
+				<code class="prettyprint">var obj = {
+					<br>
+		name: 'Bob',
+					<br>
+		married: true,
+					<br>
+		'mother\'s name': 'Alice',
+					<br>
+		'year of birth': 1987,
+					<br>
+		getAge: function () {
+					<br>
+			return 2012 - obj['year of birth'];
+					<br>
+		},
+					<br>
+		1: 'one'
+					<br>
+	};</code>
+				<h2>Property Access</h2>
+				<h3>Syntax</h3>
+				<code class="prettyprint">name1[string]
+					<br>
+	name2.identifier</code>
+				<h3>Example</h3>
+				<code class="prettyprint">obj['name'];  // 'Bob'
+					<br>
+	obj.name;     // 'Bob'
+					<br>
+	obj.getAge(); // 24</code>
+			</article>
+		</section>
+		<section class="main-section" id="reference">
+			<header>Reference</header>
+			<article>
+				<p>All documentation is taken from<a href="https://www.codecademy.com/articles/glossary-javascript">Codecademy</a> and<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">MDN</a>.</p>
+			</article>
+		</section>
+	</main>
+
+</body>
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+</html>
